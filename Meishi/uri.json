@@ -2,5 +2,5 @@
   "name": "GUN`S MEISHI",
   "description": "Gunとリアルで遭遇した人にのみお渡ししている名刺SBTです",
   "image": "https://metadata.ens.domains/mainnet/0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85/0xf1b86f735d56c1ff737143c594f152e4b5a784ed695f575ee9a622a3c7dcbd41/image"
-  "attributes": [{"Twitter":"@gun_bkup"},{"Discord":"Gun#6666"}]
+  "attributes": [{"trait_type":"Twitter","value": "@gun_bkup"},{"trait_type":"Discord","value": "Gun#6666"}]
 }
