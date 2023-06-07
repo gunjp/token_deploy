@@ -1,6 +1,6 @@
 {
   "name": "GUN`S MEISHI SBT",
   "description": "Gunとリアルで遭遇した限定で、お渡ししている名刺SBTです。",
-  "image": "https://gunjp.github.io/token_deploy/Meishi/Meishi.png",
+  "image": "https://storage.gunjp.xyz/Meishi/Meishi.png",
   "attributes": [{"trait_type":"Twitter","value":"@gun_bkup"}, {"trait_type":"ENS","value":"gunjp.eth"},{"trait_type":"FAV_COLOR","value":"RED"}]
 }
