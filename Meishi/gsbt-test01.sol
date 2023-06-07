@@ -1,24 +1,34 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.9;
+// 2023-06-07 @auther gun_bkup
 
+pragma solidity ^0.8.9;
 import "@openzeppelin/contracts@4.9.0/token/ERC1155/ERC1155.sol";
+import "@openzeppelin/contracts@4.9.0/access/AccessControl.sol";
 import "@openzeppelin/contracts@4.9.0/access/Ownable.sol";
 import "@openzeppelin/contracts@4.9.0/utils/Strings.sol";
 
-contract Gsbt_test2 is ERC1155, Ownable {
-    constructor() ERC1155("") {}
+contract GUN_MEISHI is ERC1155, AccessControl, Ownable {
+    constructor() ERC1155("") {
+        _grantRole(ADMIN, msg.sender);
+    }
     // CONST
     using Strings for uint256;
-    string public name = "GUN MEISHI TEST02";
-    string public symbol = "GMT";
+    bytes32 public constant ADMIN = "ADMIN";
+    string public name = "GUN`S MEISHI";
+    string public symbol = "GUN-MEISHI";
     string private _baseUri;
     string private _extension = ".json";
 
-    // URI
-    function setURI(string memory newuri) public onlyOwner {
-        _setURI(newuri);
+    // ROLE
+    function grantRole(bytes32 role, address account) public override onlyOwner {
+        _grantRole(role, account);
     }
-    function setBaseUri(string memory baseUri) external onlyOwner {
+    function revokeRole(bytes32 role, address account) public override onlyOwner {
+        _revokeRole(role, account);
+    }
+
+    // URI
+    function setBaseUri(string memory baseUri) external onlyRole(ADMIN) {
         _baseUri = baseUri;
     }
     function uri(uint256 tokenId) public view virtual override returns (string memory) {
@@ -33,7 +43,7 @@ contract Gsbt_test2 is ERC1155, Ownable {
         public onlyOwner{
         _mintBatch(to, ids, amounts, data);
     }
-    function AirDrop(address[] memory list, uint256 id) public onlyOwner {
+    function AirDrop(address[] memory list, uint256 id) external onlyRole(ADMIN) {
         require(bytes(uri(id)).length != 0, "Not initialized");
         for (uint256 i = 0; i < list.length; i++) {
             _mint(list[i], id, 1, "");
@@ -48,5 +58,12 @@ contract Gsbt_test2 is ERC1155, Ownable {
         for (uint256 i = 0; i < ids.length; i++) {
             require(from == address(0) || to == address(0), "SBT...");
         }
+    }
+
+    // interface
+    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC1155, AccessControl) returns (bool) {
+        return
+            AccessControl.supportsInterface(interfaceId) ||
+            ERC1155.supportsInterface(interfaceId);
     }
 }
