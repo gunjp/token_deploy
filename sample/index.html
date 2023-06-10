@@ -1,45 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+
   </head>
   <body>
-    <script>
-  let W = 800;
-  let C = W/2;
-  let n = 0;
-  let f = 1;
-
-  function preload() {
-    //img = loadImage('https://cdn.discordapp.com/attachments/1064233881559109672/1111280792165945374/xio_p5_test1.png');
-    img = loadImage('xio_p5_test1.png');
-  }
-
- function setup() {
-    createCanvas(700,700);
-    //background(100,61,97);
-}
-
-function draw() {
-  background(100,61,97);
-   noFill();
-   stroke(255,20,147,100);
-   strokeWeight(22);
-   f+=1;
-   for(n=f%40;n<300;n+=10){
-       circle(W*noise(n-f),W*noise(n-f,1),n);
-   }
-
-    image(img,0,0);
-  }
-    </script>
-    <style>
-      #defaultCanvas0 {
-        position: fixed; /*canvasを固定*/
-        top: 0; /*canvasを上に固定*/
-        left: 0;
-        z-index: -1;
-      }
-    </style>
+    <main>
+    </main>
+    <script src="sketch.js"></script>
   </body>
 </html>
