@@ -8,7 +8,7 @@ contract GUN_ICON is ERC721, Ownable {
     constructor() ERC721("GUN_ICON", "GUN_ICON") {}
 
     function _baseURI() internal pure override returns (string memory) {
-        return "https://storage.gunjp.xyz/ICON";
+        return "https://storage.gunjp.xyz/ICON/0.json";
     }
 
     function safeMint(address to, uint256 tokenId) public onlyOwner {
