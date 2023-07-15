@@ -1,6 +1,5 @@
 {
-  "name": "GUN TWITTER PFP",
-  "description": "twitter PFP",
-  "image": "https://storage.gunjp.xyz/ICON/PFP.png",
-  "attributes": [{"trait_type":"TWITTER","value":"@gun＿bkup"}, {"trait_type":"ENS","value":"gunjp.eth"},{"trait_type":"CODENAME","value":"CNA#006"}]
+  "name": "GUN-TWITTER-PFP",
+  "description": "NFT for icons to be used for @gun_bkup's Twitter PFP\n",
+  "image": "https://storage.gunjp.xyz/ICON/PFP.png"
 }
